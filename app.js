@@ -77,9 +77,9 @@ function renderHome(app) {
                     <time datetime="${post.date}">${formatDate(post.date)}</time>
                     <p>${escapeHtml(post.description)}</p>
                     <div style="display: flex; justify-content: space-between; align-items: center;">
-                        <a href="#/post/${post.id}" class="btn">📖 Читать →</a>
+                        <a href="#/post/${post.id}" class="btn">Читать →</a>
                         <button class="favorite-btn ${favorites.includes(post.id) ? 'active' : ''}" data-id="${post.id}">
-                            ${favorites.includes(post.id) ? '❤️ В избранном' : '🤍 В избранное'}
+                            ${favorites.includes(post.id) ? 'В избранном' : 'В избранное'}
                         </button>
                     </div>
                 </article>
@@ -96,10 +96,10 @@ function renderHome(app) {
             
             if (isNowFavorite) {
                 btn.classList.add('active');
-                btn.textContent = '❤️ В избранном';
+                btn.textContent = 'В избранном';
             } else {
                 btn.classList.remove('active');
-                btn.textContent = '🤍 В избранное';
+                btn.textContent = 'В избранное';
             }
         });
     });
@@ -122,7 +122,7 @@ async function renderPost(app, id) {
     }
 
     // Показываем загрузку
-    app.innerHTML = '<div class="loading-spinner">📖 Загрузка статьи...</div>';
+    app.innerHTML = '<div class="loading-spinner">Загрузка статьи...</div>';
 
     try {
         // Проверяем кэш
@@ -153,10 +153,10 @@ async function renderPost(app, id) {
                 <div class="post-header">
                     <h1>${escapeHtml(post.title)}</h1>
                     <div class="post-meta">
-                        <time datetime="${post.date}">📅 ${formatDate(post.date)}</time>
-                        <span class="reading-time">⏱️ ${readingTime} мин чтения</span>
+                        <time datetime="${post.date}">${formatDate(post.date)}</time>
+                        <span class="reading-time">${readingTime} мин чтения</span>
                         <button class="favorite-btn ${isFav ? 'active' : ''}" id="favoritePostBtn">
-                            ${isFav ? '❤️ В избранном' : '🤍 В избранное'}
+                            ${isFav ? 'В избранном' : 'В избранное'}
                         </button>
                     </div>
                 </div>
@@ -179,10 +179,10 @@ async function renderPost(app, id) {
                 const isNowFavorite = toggleFavorite(postId);
                 if (isNowFavorite) {
                     favBtn.classList.add('active');
-                    favBtn.textContent = '❤️ В избранном';
+                    favBtn.textContent = 'В избранном';
                 } else {
                     favBtn.classList.remove('active');
-                    favBtn.textContent = '🤍 В избранное';
+                    favBtn.textContent = 'В избранное';
                 }
             });
         }
@@ -262,14 +262,14 @@ async function init() {
     addRoute('#/about', (app) => {
         app.innerHTML = `
             <article class="post">
-                <h1>📖 О блоге</h1>
+                <h1>О блоге</h1>
                 <p>Этот блог создан в рамках учебного проекта для демонстрации возможностей:</p>
                 <ul>
-                    <li>✨ Чистый JavaScript без фреймворков</li>
-                    <li>📝 Парсинг Markdown с помощью регулярных выражений</li>
-                    <li>🔄 Клиентская маршрутизация через History API / hashchange</li>
-                    <li>💾 Кэширование статей и сохранение избранного в localStorage</li>
-                    <li>📱 Адаптивный дизайн</li>
+                    <li>Чистый JavaScript без фреймворков</li>
+                    <li>Парсинг Markdown с помощью регулярных выражений</li>
+                    <li>Клиентская маршрутизация через History API / hashchange</li>
+                    <li>Кэширование статей и сохранение избранного в localStorage</li>
+                    <li>Адаптивный дизайн</li>
                 </ul>
                 <p>Все статьи написаны в формате Markdown и загружаются динамически.</p>
                 <button class="back-btn" onclick="window.location.hash='#/'">← На главную</button>
