@@ -1,0 +1,395 @@
+/* Reset и базовые стили */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+    background: #f8fafc;
+    color: #1e293b;
+    line-height: 1.7;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Шапка */
+header {
+    background: #1a1a2e;
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+nav {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+nav a {
+    color: #94a3b8;
+    text-decoration: none;
+    transition: color 0.2s ease;
+    font-weight: 500;
+}
+
+nav a:hover,
+nav a.active {
+    color: #e94560;
+}
+
+nav .logo {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: white;
+    margin-right: auto;
+}
+
+nav .logo:hover {
+    color: #e94560;
+}
+
+/* Основной контент */
+main {
+    flex: 1;
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+}
+
+/* Спиннер загрузки */
+.loading-spinner {
+    text-align: center;
+    padding: 3rem;
+    color: #64748b;
+}
+
+/* Сетка карточек статей */
+.posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.8rem;
+}
+
+/* Карточка статьи */
+.card {
+    background: white;
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.card h2 {
+    font-size: 1.35rem;
+    margin-bottom: 0.5rem;
+}
+
+.card h2 a {
+    color: #1a1a2e;
+    text-decoration: none;
+}
+
+.card h2 a:hover {
+    color: #e94560;
+}
+
+.card time {
+    font-size: 0.85rem;
+    color: #94a3b8;
+    display: block;
+    margin-bottom: 0.75rem;
+}
+
+.card p {
+    color: #475569;
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+/* Кнопки */
+.btn {
+    display: inline-block;
+    margin-top: 0.5rem;
+    padding: 0.4rem 1.2rem;
+    background: #e94560;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: background 0.2s ease;
+}
+
+.btn:hover {
+    background: #c62a47;
+}
+
+/* Страница статьи */
+.post {
+    background: white;
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.post-header {
+    margin-bottom: 2rem;
+    border-bottom: 2px solid #f1f5f9;
+    padding-bottom: 1rem;
+}
+
+.post h1 {
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+    color: #1a1a2e;
+}
+
+.post .post-meta {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+    color: #64748b;
+    font-size: 0.9rem;
+}
+
+.post .reading-time {
+    background: #f1f5f9;
+    padding: 0.2rem 0.6rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+}
+
+.post h2 {
+    font-size: 1.6rem;
+    margin: 1.8rem 0 0.8rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid #e2e8f0;
+    color: #1e293b;
+}
+
+.post h3 {
+    font-size: 1.3rem;
+    margin: 1.4rem 0 0.6rem;
+    color: #334155;
+}
+
+.post p {
+    margin-bottom: 1.2rem;
+    color: #334155;
+}
+
+.post ul,
+.post ol {
+    margin: 0.8rem 0 1.2rem 1.8rem;
+}
+
+.post li {
+    margin: 0.4rem 0;
+}
+
+.post pre {
+    background: #1e1e2e;
+    color: #cdd6f4;
+    padding: 1.2rem;
+    border-radius: 12px;
+    overflow-x: auto;
+    margin: 1.2rem 0;
+    position: relative;
+}
+
+.post code {
+    background: #f1f5f9;
+    padding: 0.2rem 0.5rem;
+    border-radius: 6px;
+    font-family: 'Fira Code', 'Courier New', monospace;
+    font-size: 0.9rem;
+}
+
+.post pre code {
+    background: none;
+    padding: 0;
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+
+.post a {
+    color: #e94560;
+    text-decoration: none;
+    border-bottom: 1px dotted #e94560;
+}
+
+.post a:hover {
+    color: #c62a47;
+}
+
+.post blockquote {
+    border-left: 4px solid #e94560;
+    margin: 1rem 0;
+    padding: 0.5rem 0 0.5rem 1.5rem;
+    background: #fef2f4;
+    border-radius: 0 8px 8px 0;
+    color: #4a5568;
+}
+
+.post hr {
+    margin: 1.5rem 0;
+    border: none;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #cbd5e1, transparent);
+}
+
+/* Кнопка назад */
+.back-btn {
+    background: none;
+    border: 1px solid #cbd5e1;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+    color: #475569;
+}
+
+.back-btn:hover {
+    background: #f1f5f9;
+    border-color: #e94560;
+    color: #e94560;
+}
+
+/* Кнопка копирования кода */
+.copy-btn {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    background: #334155;
+    color: white;
+    border: none;
+    padding: 0.25rem 0.75rem;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+pre:hover .copy-btn {
+    opacity: 1;
+}
+
+.copy-btn:hover {
+    background: #e94560;
+}
+
+/* Оглавление */
+.table-of-contents {
+    background: #f1f5f9;
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    margin: 1rem 0 2rem;
+}
+
+.table-of-contents h4 {
+    margin-bottom: 0.5rem;
+    color: #1e293b;
+}
+
+.table-of-contents ul {
+    margin: 0;
+    list-style: none;
+}
+
+.table-of-contents li {
+    margin: 0.25rem 0;
+}
+
+.table-of-contents a {
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+/* Кнопка избранного */
+.favorite-btn {
+    background: none;
+    border: 1px solid #cbd5e1;
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: all 0.2s;
+}
+
+.favorite-btn.active {
+    background: #e94560;
+    border-color: #e94560;
+    color: white;
+}
+
+.favorite-btn:hover {
+    border-color: #e94560;
+}
+
+/* Страница 404 */
+.not-found {
+    text-align: center;
+    padding: 4rem 2rem;
+}
+
+.not-found h2 {
+    font-size: 3rem;
+    color: #e94560;
+    margin-bottom: 1rem;
+}
+
+/* Футер */
+footer {
+    text-align: center;
+    padding: 1.5rem;
+    background: #1a1a2e;
+    color: #94a3b8;
+    margin-top: auto;
+    font-size: 0.85rem;
+}
+
+/* Адаптивность */
+@media (max-width: 640px) {
+    nav {
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    nav .logo {
+        width: 100%;
+        margin-right: 0;
+        text-align: center;
+    }
+
+    .posts-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .post {
+        padding: 1.2rem;
+    }
+
+    .post h1 {
+        font-size: 1.8rem;
+    }
+}
